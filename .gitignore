@@ -1,0 +1,26 @@
+# VS + dotnet
+.vs/
+*.user
+*.suo
+*.userosscache
+*.sln.docstates
+
+# Build results
+bin/
+obj/
+out/
+*.dll
+*.exe
+
+# Rider
+.idea/
+
+# Logs
+*.log
+
+# System
+Thumbs.db
+.DS_Store
+
+# User secrets
+*.secrets.json
