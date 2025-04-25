@@ -73,14 +73,17 @@ namespace HMT_UserService.Repositories
             try
             {
                 _context.Users.Remove(wantedUser);
+
                 await _context.SaveChangesAsync();
+
+                return $"Пользователь {wantedUser.Name} был успешно удалён!";
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message);
             }
 
-            return $"Пользователь {wantedUser.Name} был успешно удалён!";
+            return null;
         }
 
         public async Task<List<UsersFrontDto>?> GetAllAsync()

@@ -12,7 +12,6 @@ builder.Services.AddDbContext<AppDbContext>(options =>
 builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<UserCRUDValidator>();
 
-// Добавляем сервис логирования
 builder.Services.AddScoped<ILoggingRepository, LoggingService>();
 
 builder.Services.AddCors(options =>

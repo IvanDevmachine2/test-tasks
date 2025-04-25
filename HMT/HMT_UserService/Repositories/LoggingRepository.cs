@@ -14,12 +14,10 @@ public class LoggingService : ILoggingRepository
         var logJson = JsonSerializer.Serialize(logEntry);
         var content = new StringContent(logJson, Encoding.UTF8, "application/json");
 
-        // Путь с полным базовым адресом будет автоматически подставляться через HttpClient
-        var response = await _httpClient.PostAsync("/api/Logs/entry", content); // Используем точный путь
+        var response = await _httpClient.PostAsync("/api/Logs/entry", content);
 
         if (!response.IsSuccessStatusCode)
         {
-            // Чтение содержимого ошибки (если оно есть) для более подробной диагностики
             var errorContent = await response.Content.ReadAsStringAsync();
             throw new Exception($"Ошибка при отправке лога в сервис: {response.StatusCode}. Ошибка: {errorContent}");
         }
